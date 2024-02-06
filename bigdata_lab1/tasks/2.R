@@ -1,0 +1,6 @@
+v <- sapply(1:20, function(item) ifelse(item %% 2 == 0, item, 0))
+print(v)
+v <- sapply(1:20, function(item) 2^item)
+print(v)
+v <- sapply(0:4, function(item) 10^item)
+print(v)

@@ -1,0 +1,7 @@
+v <- sapply(1:50, function(item) 1 / (item * (item + 1)))
+print(sum(v))
+v <- sapply(0:20, function(item) 1 / 2^item)
+print(sum(v))
+v <- sapply(0:9, function(item) (1 + 3 * item) / 3^item)
+print(sum(v))
+print(Reduce(function(value, item) value + ifelse(item > 0.5, 1, 0), v))

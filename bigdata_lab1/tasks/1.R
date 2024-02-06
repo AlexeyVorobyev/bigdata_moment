@@ -1,0 +1,6 @@
+p <- c(7, 6, 5, 4)
+q <- c(0, 1, 2, 3)
+print(p + q)
+print(p * q)
+print(p / q)
+print(p^q)
