@@ -2,6 +2,9 @@
 
 data_gold <- read.csv('../bigdata_moment/bigdata_lab4/resources/medals.csv')
 
+data_gold <- data_gold[data_gold$year %% 4 == 2, ]
+
+
 plot(
   data_gold$year,
   data_gold$USA,
@@ -9,7 +12,7 @@ plot(
   pch=19,
   col="#3be8b0",
   xaxt="n",
-  ylim=c(0,140),
+  ylim=c(0,50),
   xlab="year",
   ylab="Призовых мест",
   main="Призовые места за 6 последних олимпиад"

@@ -2,6 +2,9 @@
 
 data_gold <- read.csv('../bigdata_moment/bigdata_lab4/resources/medals.csv')
 
+data_gold <- data_gold[data_gold$year %% 4 == 0, ]
+
+
 plot(
   data_gold$year,
   data_gold$USA,

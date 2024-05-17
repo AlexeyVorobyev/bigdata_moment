@@ -2,16 +2,15 @@ source('../bigdata_moment/bigdata_lab3/tasks/import.R')
 
 data <- data_serials[,3:12]
 
-# Ð¡Ð¾Ð·Ð´Ð°ÐµÐ¼ subdataset Ð¸Ð· Ñ‚ÐµÑ…, ÐºÑ‚Ð¾ Ð½Ðµ ÑÐ¼Ð¾Ñ‚Ñ€ÐµÐ» ÑÐµÑ€Ð¸Ð°Ð» Ð»ÑŽÐ±Ð²Ð¾Ð²ÑŒ ÑÐ¼ÐµÑ€Ñ‚ÑŒ Ð¸ Ñ€Ð¾Ð±Ð¾Ñ‚Ñ‹
-love_death_robots_ns <- subset(data, Ð›ÑŽÐ±Ð¾Ð²ÑŒ..ÑÐ¼ÐµÑ€Ñ‚ÑŒ.Ð¸.Ñ€Ð¾Ð±Ð¾Ñ‚Ñ‹ == 0)
+# Ñîçäàåì subdataset èç òåõ, êòî íå ñìîòðåë ñåðèàë ëþáâîâü ñìåðòü è ðîáîòû
+love_death_robots_ns <- subset(data, "Ëþáîâü..ñìåðòü.è.ðîáîòû" == 0)
 
 love_death_robots_ns
 
-# Ñ€Ð°Ð·Ð¼ÐµÑ€Ð½Ð¾ÑÑ‚ÑŒ ÑÑƒÐ±Ð´Ð°Ñ‚Ð°ÑÐµÑ‚Ð°
+# ðàçìåðíîñòü ñóáäàòàñåòà
 dim(love_death_robots_ns)
 
-hist(love_death_robots_ns$Ð§ÐµÑ€Ð½Ð¾Ðµ.Ð·ÐµÑ€ÐºÐ°Ð»Ð¾, main="Ð“Ð¸ÑÑ‚Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ð° Ñƒ Ñ‚ÐµÑ…, ÐºÑ‚Ð¾ Ð½Ðµ ÑÐ¼Ð¾Ñ‚Ñ€ÐµÐ» ÑÐµÑ€Ð¸Ð°Ð» Ð»ÑŽÐ±Ð²Ð¾Ð²ÑŒ ÑÐ¼ÐµÑ€Ñ‚ÑŒ Ð¸ Ñ€Ð¾Ð±Ð¾Ñ‚Ñ‹ Ð¿Ð¾ ÑÐµÑ€Ð¸Ð°Ð»Ñƒ Ð§ÐµÑ€Ð½Ð¾Ðµ Ð·ÐµÑ€ÐºÐ°Ð»Ð¾",
-     xlab="Ð‘Ð°Ð»Ð»Ñ‹", ylab="Ð§Ð°ÑÑ‚Ð¾Ñ‚Ð°")
+hist(love_death_robots_ns$`×åðíîå.çåðêàëî`, main="rus", xlab="Áàëëû", ylab="×àñòîòà")
 
 library(dplyr)
 compare_them <- function(data1,data2) {
