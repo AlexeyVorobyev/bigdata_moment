@@ -118,6 +118,3 @@ cloud(
   pch = 20,
   cex = 1.5,
 )
-
-df_24 %>%
-  ggplot(aes(Pollution.Index, Traffic.Commute.Time.Index, color = Group)) + geom_point()

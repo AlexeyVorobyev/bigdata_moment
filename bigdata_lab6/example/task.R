@@ -122,52 +122,52 @@ cloud(birth_rate ~ death_rate * child_death_rate, group = Group, data = inf123, 
 inf123 %>%
 	ggplot(aes(birth_rate, death_rate, color = Group)) + geom_point()
 
-# city.01 <- read.csv("countries_life_rating_1990.csv")
-# city.01
-# city.01 <- city.01[, -8]
-#
-# city.01$income[city.01$income == -9999] <- NA
-# city.01 <- na.omit(city.01)
-#
-# my_data <- city.01[, -8]
-# my_data
-# groups
-# my_data$Group <- as.factor(groups)
+city.01 <- read.csv("../bigdata_moment/bigdata_lab6/example/countries_life_rating_1990.csv")
+city.01
+city.01 <- city.01[, -8]
 
-# naive_df <- NaiveBayes(my_data$Group ~ ., data = my_data)
-# naive_df$tables
-# naive_df$tables$Work
-# naive_df
-#
-# opar = par()
-# opar
-# layout(matrix(c(1, 2, 3, 4), 2, 2))
-# plot(naive_df, lwd = 2, legendplot = FALSE)
-# legend("topleft", lty = 1:3, cex = 0.5)
-# par = opar
+city.01$income[city.01$income == -9999] <- NA
+city.01 <- na.omit(city.01)
+
+my_data <- city.01[, -8]
+my_data
+groups
+my_data$Group <- as.factor(groups)
+
+naive_df <- NaiveBayes(my_data$Group ~ ., data = my_data)
+naive_df$tables
+naive_df$tables$Work
+naive_df
+
+opar = par()
+opar
+layout(matrix(c(1, 2, 3, 4), 2, 2))
+plot(naive_df, lwd = 2, legendplot = FALSE)
+legend("topleft", lty = 1:3, cex = 0.5)
+par = opar
 
 
-# set.seed(1234)
-# ind <- sample(2, nrow(my_data), replace = TRUE, prob = c(0.7, 0.3))
-# trainData <- my_data[ind == 1,]
-# testData <- my_data[ind == 2,]
-# nrow(trainData)
-# nrow(testData)
-# nrow(my_data)
-#
-# my_data
-# myFormula <- Group ~ birth_rate +
-# 	death_rate +
-# 	child_death_rate +
-# 	man_lifespan +
-# 	woman_lifespan +
-# 	income
-# df_ctree <- ctree(myFormula, data = trainData)
-# df_ctree
-# table(predict(df_ctree), trainData$Group)
-# predict(df_ctree)
-# plot(df_ctree)
-#
-# rf <- randomForest(Group ~ ., data = trainData, ntree = 100, proximity = TRUE)
-# table(predict(rf), trainData$Group)
-# print(rf)
+set.seed(1234)
+ind <- sample(2, nrow(my_data), replace = TRUE, prob = c(0.7, 0.3))
+trainData <- my_data[ind == 1,]
+testData <- my_data[ind == 2,]
+nrow(trainData)
+nrow(testData)
+nrow(my_data)
+
+my_data
+myFormula <- Group ~ birth_rate +
+	death_rate +
+	child_death_rate +
+	man_lifespan +
+	woman_lifespan +
+	income
+df_ctree <- ctree(myFormula, data = trainData)
+df_ctree
+table(predict(df_ctree), trainData$Group)
+predict(df_ctree)
+plot(df_ctree)
+
+rf <- randomForest(Group ~ ., data = trainData, ntree = 100, proximity = TRUE)
+table(predict(rf), trainData$Group)
+print(rf)
