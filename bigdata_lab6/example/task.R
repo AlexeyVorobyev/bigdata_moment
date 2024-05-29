@@ -1,9 +1,8 @@
 library(lattice)
 library(scatterplot3d)
-install.packages('dendextend')
-install.packages('farver')
-install.packages('labeling')
-
+library(dendextend)
+library(farver)
+library(labeling)
 require(installr)
 suppressPackageStartupMessages(library(installr))
 require2(colorspace)
@@ -15,8 +14,11 @@ library(tibble)
 library(klaR)
 library(party)
 library(randomForest)
+library(vctrs)
+library(tibble)
+library(ggplot2)
 
-inf1 <- read.csv("../bigdata_moment/bigdata_lab6/countries_life_rating_1990.csv")
+inf1 <- read.csv("../bigdata_moment/bigdata_lab6/example/countries_life_rating_1990.csv")
 inf1 <- inf1[, -8]
 
 inf1$income[inf1$income == -9999] <- NA
@@ -27,6 +29,8 @@ Countries <- inf1$country
 
 
 inf2 <- scale(inf1[, 2:7], center = TRUE, scale = TRUE)
+
+inf2
 
 inf2 <- inf1[, -1]
 maxs <- apply(inf2, 2, max)
@@ -40,15 +44,13 @@ dist.city <- dist(inf2[, 2:7])
 
 clust.city <- hclust(dist.city, "ward.D")
 
-install.packages("vctrs")
-install.packages('tibble')
 plot(clust.city, labels = inf1$country,main="Dendrogram",ylab="Similarity",xlab="Countries")
 
 k = 5
 rect.hclust(clust.city, k, border = "red")
 abline(h = 1.5, col = "blue", lwd = '3')
 
-# plot(1:90, clust.city$height, type = 'b', xlab = "Number of component", ylab = "Self value")
+plot(1:90, clust.city$height, type = 'b', xlab = "Number of component", ylab = "Self value")
 
 groups <- cutree(clust.city, k)
 
